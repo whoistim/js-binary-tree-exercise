@@ -12,7 +12,6 @@ BinTree.prototype.insert = function(val){
 
       if(this.right === null){//checks to see if the right node is empty
         this.right = new BinTree(val);//if so, sets the right node to val.
-        return(this);
       }
 
       else {
@@ -23,7 +22,6 @@ BinTree.prototype.insert = function(val){
     else {
       if(this.left === null){
         this.left = new BinTree(val);
-        return(this);
       }
       else{
         this.left.insert(val);
@@ -37,21 +35,12 @@ BinTree.prototype.insert = function(val){
 
 };
 
+
 BinTree.prototype.isLeaf = function(val){
-  if (!this.left && !this.right){
-    return true;
-  }
-  else{
-    if(this.value < val){
-      this.right.isLeaf(val);
-    }
-    else{
-      this.left.isLeaf(val);
-    }
-
-  }
-
+  return (!this.left && !this.right);
 };
+
+
 BinTree.prototype.search = function(){
   if(this.value){
     return true;
